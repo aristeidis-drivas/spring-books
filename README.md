@@ -6,7 +6,7 @@ This is but a simple sample of an application with CRUD operations for books usi
 
 ## Technologies & Tools
 * Java 11
-* Spring Framework (Spring Boot, Spring Security)
+* Spring Framework (Spring Boot, Spring Security, Spring JPA)
 * Maven
 * JUnit for testing
 * IntelliJ Community Edition IDE
