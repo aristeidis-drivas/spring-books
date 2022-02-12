@@ -1,6 +1,8 @@
 package com.adrivas.examples.books.controller;
 
 import com.adrivas.examples.books.model.Book;
+import com.adrivas.examples.books.model.exceptions.BookIdMismatchException;
+import com.adrivas.examples.books.model.exceptions.BookNotFoundException;
 import com.adrivas.examples.books.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -32,7 +34,7 @@ public class BookController {
     @GetMapping("/{id}")
     public Book findOne(@PathVariable Long id) {
         return bookRepository.findById(id)
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(BookNotFoundException::new);
     }
 
     @PostMapping
@@ -44,17 +46,17 @@ public class BookController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         bookRepository.findById(id)
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(BookNotFoundException::new);
         bookRepository.deleteById(id);
     }
 
     @PutMapping("/{id}")
     public Book updateBook(@RequestBody Book book, @PathVariable Long id) {
         if (book.getId() != id) {
-            throw new IllegalArgumentException();
+            throw new BookIdMismatchException();
         }
         bookRepository.findById(id)
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(BookNotFoundException::new);
         return bookRepository.save(book);
     }
 }
