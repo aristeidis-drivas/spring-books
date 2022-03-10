@@ -20,7 +20,7 @@ $ git clone https://github.com/aristeidis-drivas/spring-books.git
 ```
 Or download manually.
 
-Import it in a programming environment or (i.e. IntelliJ Community Edition IDE) or execute via command line.
+Import it in a programming environment (i.e. IntelliJ Community Edition IDE) or execute via command line.
 
 ## License
  The application is under the MIT license.
